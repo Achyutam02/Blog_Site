@@ -19,7 +19,7 @@ Bootstrap(app)
 gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("postgres://pnuslymrsbdeut:550d782661844adf8c15dc50bc289aa4b8771ccf48cc658339b47605811a93a8@ec2-54-157-100-65.compute-1.amazonaws.com:5432/d6aodjofltie1t")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("postgres://pnuslymrsbdeut:550d782661844adf8c15dc50bc289aa4b8771ccf48cc658339b47605811a93a8@ec2-54-157-100-65.compute-1.amazonaws.com:5432/d6aodjofltie1t",  "sqlite:///blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager()
@@ -222,4 +222,4 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
